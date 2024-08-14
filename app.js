@@ -72,6 +72,8 @@ const styleSrcUrls = [
     "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
+    "https://fonts.google.com/",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/",
 ];
 const connectSrcUrls = [
     "https://api.mapbox.com/",
@@ -79,7 +81,11 @@ const connectSrcUrls = [
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://fonts.googleapis.com",
+    "https://fonts.gstatic.com",
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/", 
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
@@ -121,6 +127,10 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.render('home')
 });
+
+app.get('/about', (req, res) => {
+    res.render('about.ejs')
+})
 
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
