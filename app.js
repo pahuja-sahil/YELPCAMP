@@ -125,11 +125,11 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home',{ page: 'home' });
 });
 
 app.get('/about', (req, res) => {
-    res.render('about.ejs')
+    res.render('about.ejs',{ page: 'about' });
 })
 
 app.use('/', userRoutes);
@@ -137,13 +137,13 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 
 app.all('*', (req, res, next) => {
-    next(new ExpressError('Page Not Found', 404))
+    next(new ExpressError('Page Not Found', 404));
 })
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
-    if (!err.message) err.message = 'Oh No, Something Went Wrong!'
-    res.status(statusCode).render('error', { err })
+    if (!err.message) err.message = 'Oh No, Something Went Wrong!';
+    res.status(statusCode).render('error', { err });
 })
 
 app.listen(3000, () => {

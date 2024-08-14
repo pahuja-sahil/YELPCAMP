@@ -7,11 +7,11 @@ const { cloudinary } = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({});
-    res.render('campgrounds/index', { campgrounds })
+    res.render('campgrounds/index', { campgrounds, page: 'index'});
 }
 
 module.exports.renderNewForm = (req, res) => {
-    res.render('campgrounds/new');
+    res.render('campgrounds/new',{ page: 'new' });
 }
 
 module.exports.createCampground = async (req, res, next) => {
@@ -40,7 +40,7 @@ module.exports.showCampground = async (req, res,) => {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
     }
-    res.render('campgrounds/show', { campground });
+    res.render('campgrounds/show', { campground , page: 'show'});
 }
 
 module.exports.renderEditForm = async (req, res) => {
@@ -50,7 +50,7 @@ module.exports.renderEditForm = async (req, res) => {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
     }
-    res.render('campgrounds/edit', { campground });
+    res.render('campgrounds/edit', { campground , page: 'edit'});
 }
 
 module.exports.updateCampground = async (req, res) => {
