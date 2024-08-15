@@ -1,23 +1,23 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar Sticky-top navbar-expand-lg">
   <div class="container-fluid">
-      <a class="navbar-brand" href="#">YelpCamp</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      <a class="navbar-brand logo-details" href="/"><i class="fas fa-fire-alt icon"></i> YelpCamp</a>
+      <button id = "collapse" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span><i class="bi bi-list"></i></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-              <a class="nav-link" href="/">Home</a>
-              <a class="nav-link" href="/campgrounds">Campgrounds</a>
-              <a class="nav-link" href="/campgrounds/new">New Campground</a>
-              <a class="nav-link" href="/about">About</a>
+          <div class="navbar-nav tags">
+              <a class="nav-link content" href="/">Home</a>
+              <a class="nav-link content" href="/campgrounds">Campgrounds</a>
+              <a class="nav-link content" href="/campgrounds/new">New Campground</a>
+              <a class="nav-link content" href="/about">About us</a>
           </div>
-          <div class="navbar-nav ml-auto">
+          <div class="navbar-nav ml-auto tags">
               <% if(!currentUser) {%>
-              <a class="nav-link" href="/login">Login</a>
-              <a class="nav-link" href="/register">Register</a>
+              <a class="nav-link content" href="/login">Login</a>
+              <a class="nav-link content" href="/register">Register</a>
               <% } else {%>
-              <a class="nav-link" href="/logout">Logout</a>
+              <a class="nav-link content" href="/logout">Logout</a>
               <% } %>
           </div>
       </div>

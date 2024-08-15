@@ -74,6 +74,7 @@ const styleSrcUrls = [
     "https://use.fontawesome.com/",
     "https://fonts.google.com/",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/",
+    "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
 ];
 const connectSrcUrls = [
     "https://api.mapbox.com/",
@@ -85,6 +86,7 @@ const fontSrcUrls = [
     "https://fonts.googleapis.com",
     "https://fonts.gstatic.com",
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/", 
+    "https://cdn.jsdelivr.net",
 ];
 app.use(
     helmet.contentSecurityPolicy({
