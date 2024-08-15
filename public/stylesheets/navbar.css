@@ -1,0 +1,43 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.navbar{
+    background-color: black;
+}
+
+.icon{
+    color: #e85d04;
+}
+
+.logo-details{
+  color: #fff;
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  padding: 5px 0px;
+  margin-right: 10px;
+}
+
+.tags{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1.2;
+    padding:5px 0;
+}
+
+.content{
+    font-weight: 600;
+    color: rgb(213, 220, 220);
+}
+
+.content:hover{
+    color: #f97a2b;
+}
+
+#collapse{
+    color: rgb(209, 200, 200);
+    border: 1px solid rgb(209, 200, 200);
+    font-size: 1.5rem;
+}
+
