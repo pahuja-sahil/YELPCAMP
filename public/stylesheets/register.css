@@ -2,7 +2,7 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    border-radius: 1rem 0 0 1rem;
+    border-radius:0 1rem 1rem 0;
 }
 
 .image-container img {

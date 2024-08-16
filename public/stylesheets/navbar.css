@@ -35,6 +35,10 @@
     color: #f97a2b;
 }
 
+.logo-details:hover{
+    color: #f97a2b;
+}
+
 #collapse{
     color: rgb(209, 200, 200);
     border: 1px solid rgb(209, 200, 200);

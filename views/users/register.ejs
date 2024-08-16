@@ -1,48 +1,151 @@
-<% layout('layouts/boilerplate')%>
-<div class="container d-flex justify-content-center align-items-center mb-3">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
-            <div class="card shadow">
-                <img src="https://media.istockphoto.com/id/1377841262/photo/the-beautiful-scenery-of-a-tent-in-a-pine-tree-forest-at-pang-oung-mae-hong-son-province.jpg?s=612x612&w=0&k=20&c=1JvDx-16zTIeytdcC-Fa27nVJ_8SveP-omNKKlUJ-lQ="
-                    alt="" class="card-img-top" />
-                <div class="card-body">
-                    <h5 class="card-title">Register</h5>
-                    <form action="/register" method="POST" class="validated-form" novalidate>
-                        <div class="mb-3">
-                            <label class="form-label" for="username">Username</label>
-                            <input class="form-control" type="text" id="username" name="username" required autofocus>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a username.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="email">Email</label>
-                            <input class="form-control" type="email" id="email" name="email" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a valid email.
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="password">Password</label>
-                            <input class="form-control" type="password" id="password" name="password" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a password.    
-                            </div>
-                        </div>
-                        <button class="btn btn-success btn-block">Register</button>
-                    </form>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+      integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/register.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <section class="vh-100 full-height-section">
+      <div class="container py-5 h-100">
+        <%- include('../partials/flash')%>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-xl-10">
+            <div class="card card-container">
+              <div class="row g-0">
+                <!-- Content on the left -->
+                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                  <div class="card-body card-body-custom">
+                    <form
+                      action="/register"
+                      method="POST"
+                      class="validated-form"
+                      novalidate
+                    >
+                      <div class="d-flex align-items-center mb-3 pb-1">
+                        <i class="fas fa-fire-alt icon"></i>
+                        <span class="login-details">YelpCamp</span>
+                      </div>
 
+                      <h5 class="pt-2 pb-2 login-title">
+                        Sign up to YelpCamp
+                      </h5>
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="username"
+                          >Username</label
+                        >
+                        <input
+                          type="text"
+                          id="username"
+                          name="username"
+                          class="form-control form-control-lg"
+                          placeholder="Enter your name"
+                          autofocus
+                          required
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide an username.
+                        </div>
+                      </div>
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="email"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          class="form-control form-control-lg"
+                          placeholder="Enter your email"
+                          autofocus
+                          required
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide an Email.
+                        </div>
+                      </div>
+
+                      <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="password">Password</label>
+                        <input
+                          type="password"
+                          id="password"
+                          name="password"
+                          placeholder="Enter your password"
+                          class="form-control form-control-lg"
+                          required
+                        />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                          Please provide a password.
+                        </div>
+                      </div>
+
+                      <div class="pt-1 mb-4">
+                        <button
+                          data-mdb-button-init
+                          data-mdb-ripple-init
+                          class="btn btn-dark btn-lg btn-block"
+                          type="submit"
+                        >
+                            Register
+                        </button>
+                      </div>
+
+                      <p class="mb-5 pb-lg-2 login-link">
+                        Already registered?
+                        <a href="/login" class="login-link">Login here</a>
+                      </p>
+                    </form>
+                  </div>
                 </div>
+                <!-- Image on the right -->
+                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                  <div class="image-container">
+                    <img src="/images/register.jpeg" alt="login form" />
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+      integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/javascripts/validateForms.js"></script>
+  </body>
+</html>
