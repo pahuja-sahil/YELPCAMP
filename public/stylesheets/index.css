@@ -1,0 +1,154 @@
+/* General styles */
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+/* Headings and Content Spacing */
+h1 {
+  margin-bottom: 2rem;
+}
+
+form {
+  margin-bottom: 3rem;
+}
+
+.search-form {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Ensure the input and button are inline with the container */
+.search-input {
+  border-radius: 5px;
+  flex: 1;
+}
+
+.search-btn {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.mainhead {
+  margin: 1rem auto;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Card styles */
+.campground-card {
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 300px;
+  overflow: hidden; /* Ensure content does not overflow */
+}
+
+/* Card Body Styling */
+.card-body {
+  padding-left: 1rem;
+}
+
+.card-title {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.card-text {
+  margin-bottom: 0.5rem;
+}
+
+.image-container {
+  max-width: 33%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.img-fluid {
+  border-radius: 5px;
+  width: 100%;
+  height: calc(300px - 2rem);
+  transition: transform 300ms linear, border-radius 300ms linear;
+  cursor: pointer;
+}
+
+.img-fluid:hover {
+  border-radius: 10px;
+  transform: scale(1.02);
+}
+
+/* Responsive changes for medium screens (above 768px and below 1200px) */
+@media  (max-width: 1200px) {
+  .search-form {
+    display: flex;
+    flex-direction: row; /* Ensure input and button are in the same line */
+  }
+
+  .search-input {
+    flex: 1;
+    margin-bottom: 0; /* Keep input and button aligned */
+  }
+
+  .search-btn {
+    margin-left: 10px;
+    width: auto; /* Let the button take its normal width */
+  }
+
+  .campground-card {
+    height: 375px; /* Remove fixed height */
+  }
+
+  .col-md-4, .col-md-8 {
+    max-width: 100%; /* Ensure columns fit within the card */
+  }
+
+  .card-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .img-fluid {
+    height: calc(375px - 2.5rem); /* Cover the container without distortion */
+  }
+
+}
+
+/* Responsive changes for small screens (below 768px) */
+@media (max-width: 768px) {
+  .campground-card .row {
+    display: flex;
+    flex-direction: column; /* Stack columns vertically on small screens */
+  }
+
+  .col-md-4, .col-md-8 {
+    max-width: 100%; /* Full width for small screens */
+  }
+
+  .image-container {
+    max-width: 100%; /* Full width for image */
+  }
+
+  .campground-card {
+    height: auto; /* Remove fixed height on small screens */
+  }
+
+  .search-form {
+    flex-direction: column; /* Stack the input and button vertically */
+  }
+
+  .search-input {
+    width: 100%;
+    margin-bottom: 10px; /* Add margin to prevent overlap with button */
+  }
+
+  .search-btn {
+    width: 100%; /* Make the button full width */
+    margin-left: 0; /* Remove margin that causes alignment issue */
+  }
+
+  .mainhead {
+    font-size: 2rem; /* Smaller heading for small screens */
+  }
+}

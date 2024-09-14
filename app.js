@@ -18,6 +18,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
+const Campground = require('./models/campground');
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -127,16 +128,22 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('home',{ page: 'home' });
+    res.render('home');
 });
 
 app.get('/about', (req, res) => {
-    res.render('about.ejs',{ page: 'about' });
+    res.render('about.ejs');
 })
 
 app.use('/', userRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
+
+app.get('/results', async (req, res) => {
+    const { search_query } = req.query;
+    const campgrounds = await Campground.find({ title: { $regex: search_query, $options: "i" } });
+    res.render('search.ejs', { campgrounds, search_query });
+});
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));

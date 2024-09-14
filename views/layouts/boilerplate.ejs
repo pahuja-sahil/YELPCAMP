@@ -41,11 +41,12 @@
     <link rel="stylesheet" href="/stylesheets/navbar.css" />
     <link rel="stylesheet" href="/stylesheets/new.css" />
     <link rel="stylesheet" href="/stylesheets/edit.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
   </head>
 
   <body class="d-flex flex-column vh-100" style="background-color: #efefef;">
     <%- include('../partials/navbar')%>
-    <main class="<%= (page === 'about') ? '' : 'container' %> mt-3">
+    <main class='container' %> mt-3">
       <%- include('../partials/flash')%> <%- body %>
     </main>
     <%- include('../partials/footer')%>
