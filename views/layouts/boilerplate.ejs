@@ -42,12 +42,16 @@
     <link rel="stylesheet" href="/stylesheets/new.css" />
     <link rel="stylesheet" href="/stylesheets/edit.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/show.css">
   </head>
 
   <body class="d-flex flex-column vh-100" style="background-color: #efefef;">
     <%- include('../partials/navbar')%>
-    <main class='container' %> mt-3">
-      <%- include('../partials/flash')%> <%- body %>
+  <div class="mt-2">  
+    <%- include('../partials/flash')%> 
+  </div>
+    <main class='container'>
+      <%- body %>
     </main>
     <%- include('../partials/footer')%>
     <script
