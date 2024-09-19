@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate')%>
 
-<div class="row">
+<div class="row mt-4">
   <div class="col-6">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -29,7 +29,7 @@
       <% } %>
     </div>  
     <div class="card mb-3">
-      <div class="card-body">
+      <div class="context">
         <h5 class="card-title"><%= campground.title%></h5>
         <p class="card-text"><%= campground.description%></p>
       </div>
@@ -41,7 +41,7 @@
         <li class="list-group-item">$<%= campground.price%>/night</li>
       </ul>
       <% if( currentUser && campground.author.equals(currentUser._id)) {%>
-      <div class="card-body">
+      <div class="card-body context">
         <a
           class="card-link btn btn-info"
           href="/campgrounds/<%=campground._id%>/edit"
@@ -56,7 +56,13 @@
         </form>
       </div>
       <% } %>
-      <div class="card-footer text-muted">2 days ago</div>
+      <div class="card-footer">
+        <% if(String(campground.createdAt)!==String(campground.updatedAt)) {%> 
+          Updated at: <span class="text-muted"><%= campground.updatedAt %></span>
+        <% } else {%> 
+          Created at: <span class="text-muted"><%= campground.createdAt %></span>
+        <% } %> 
+      </div>
     </div>
   </div>
 
@@ -65,7 +71,7 @@
 
 
     <% if(currentUser){ %>
-    <h2>Leave a Review</h2>
+    <h2 class="mt-4">Leave a Review</h2>
     <form
       action="/campgrounds/<%=campground._id%>/reviews"
       method="POST"
@@ -98,7 +104,6 @@
         <label for="first-rate5" title="Amazing">5 stars</label>
       </fieldset>
       <div class="mb-3">
-        <label class="form-label" for="body">Review Text</label>
         <textarea
           class="form-control"
           name="review[body]"
@@ -111,17 +116,22 @@
       </div>
       <button class="btn btn-success">Submit</button>
     </form>
+
+    <hr/>
+
+
     <% } %> <% for(let review of campground.reviews) { %>
-    <div class="card mb-3">
+    <div class="card mb-3 review-card">
       <div class="card-body">
-        <h5 class="card-title"><%= review.author.username%></h5>
+        <h5 class="review-card-title"><%= review.author.username%></h5>
         <p class="starability-result" data-rating="<%=review.rating%>">
           Rated: <%= review.rating %> stars
         </p>
         <!-- <h6 class="card-subtitle mb-2 text-muted">By <%= review.author.username%></h6> -->
-        <p class="card-text">Review: <%= review.body %></p>
+        <p class="card-text"><%= review.body %></p>
         <% if( currentUser && review.author.equals(currentUser._id)) {%>
         <form
+          class="rating-form"
           action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE"
           method="POST"
         >

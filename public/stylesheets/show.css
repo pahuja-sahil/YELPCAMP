@@ -1,0 +1,143 @@
+/* Ensure carousel images are of equal height and fully contained within the card */
+.carousel-inner img {
+    height: 400px;  /* Adjust the height as necessary */
+    object-fit: cover; /* Ensures image covers the area without stretching */
+}
+
+/* Optional: Add a border or shadow to the image to enhance visual appeal */
+.carousel-inner {
+    border-radius: 5px;
+    overflow: hidden; /* Ensures any overflow from the image is hidden */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bold and increase font size for Leave a Review heading */
+h2 {
+    font-weight: bold;
+    font-size: 1.3rem; /* Increase font size (adjust as necessary) */
+}
+
+/* Bold and increase font size for Write a Review label */
+label[for="body"] {
+    font-weight: bold;
+    font-size: 1.2rem; /* Slight increase for readability */
+}
+
+/* Add space between Leave a Review heading and stars */
+.starability-growRotate {
+    margin-top: 15px; /* Adds space between the heading and the stars */
+}
+
+/* Fix uneven spacing of stars in the review */
+.starability-result {
+    display: inline-block;
+    margin-right: 5px; /* Adjust spacing between stars if necessary */
+    margin-bottom: 5px;
+}
+
+
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background-color: whitesmoke;
+    margin: 20px 0;
+}
+
+/* Review card styling */
+.review-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    border-radius: 10px; /* Smooth rounded corners */
+    padding: 15px; /* Adds space inside the card */
+    margin-bottom: 20px; /* Adds space between the reviews */
+    border: 1px solid #e0e0e0; /* Adds a light border */
+    background-color: #fff; /* Ensures background is white */
+}
+
+/* Ensure even spacing for the star ratings and the text */
+.review-card .card-body {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Ensures even spacing between items */
+}
+
+/* Aligns the Delete button to the bottom-right and ensures it's inline */
+.review-card .btn-danger {
+    margin-top: 5px;
+}
+
+.rating-form{
+    margin:auto 0;
+}
+
+.review-card-title{
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.context{
+     padding : 1rem;
+}
+
+/* General responsive styling for small screens like tablets and mobile phones */
+@media (max-width: 768px) {
+    /* Stack carousel and map vertically */
+    .row {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /* Full width for both carousel and map on small screens */
+    .col-6 {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 20px; /* Adds space between stacked elements */
+    }
+  
+    /* Reduce the height of the carousel images for smaller screens */
+    .carousel-inner img {
+      height: 250px; /* Adjust the height to better fit smaller screens */
+    }
+  
+    /* Adjust margins for review text and form */
+    h2, form, .review-card {
+      padding: 0 10px;
+    }
+    
+    /* Ensure review cards have enough space */
+    .review-card {
+      margin: 10px 0;
+    }
+  }
+  
+  /* Further adjustments for very small mobile screens */
+  @media (max-width: 576px) {
+    .carousel-inner img {
+      height: 200px; /* Further reduce image height on very small screens */
+    }
+  
+    .col-6 {
+      margin-bottom: 15px; /* Slightly smaller spacing between elements */
+    }
+  
+    /* Reduce padding inside review cards for smaller screens */
+    .review-card {
+      padding: 10px;
+    }
+  
+    /* Adjust font sizes for better readability on small screens */
+    h5, .card-title, .review-card-title {
+      font-size: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.1rem;
+    }
+  
+    label[for="body"] {
+      font-size: 1rem;
+    }
+  }
+  

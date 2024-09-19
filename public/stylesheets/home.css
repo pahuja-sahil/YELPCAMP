@@ -1,21 +1,81 @@
 body {
   height: 100vh;
   font-family: "Nunito", sans-serif;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/images/backImg1.jpg");
+  background-color: black; /* Fallback in case of no images */
+  overflow: hidden;
+}
+
+.title{
+  font-size: 1.7rem;
+  font-weight: 700;
+  /* font-family: "Dancing Script", cursive; */
+}
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
-  transition: background 1.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
+}
+
+.background-image.active {
+  opacity: 1;
 }
 
 .cover-container {
   max-width: 90vw;
+  z-index: 1;
 }
 
-h1.display-3 {
-  font-size: 3rem;
+.vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, white 50%, transparent);
+  display: block;
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.part1 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.part2 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: "Dancing Script", cursive;
+}
+
+.btn-custom {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  font-weight: 700;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: white;
+  color: black;
 }
 
 .nav-link {
@@ -31,53 +91,43 @@ h1.display-3 {
   color: white;
 }
 
+.nav-link.active {
+  color: white;
+  text-decoration: underline;
+}
 
-  .nav-link.active {
-    color: white;
-    text-decoration: underline;
+/* For spacing adjustments in small screens */
+@media (max-width: 768px) {
+  .part1, .part2 {
+    font-size: 2.5rem; /* Adjust font size for small screens */
+    margin-bottom: 1rem; /* Add some space between the two heading parts */
   }
 
-.btn-secondary,
-.btn-secondary:hover {
-  color: #333;
-  text-shadow: none;
-}
+  .part2 {
+    padding: 0.5rem 0; /* Add space above the YelpCamp icon */
+  }
 
-/* Vertical Line Between Columns */
-.vertical-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  background: linear-gradient(to bottom, transparent, white 50%, transparent);
-  z-index: 1;
-  padding: 0; /* Force recalculation */
-  margin: 0;
-  display: block;
-}
+  .lead {
+    margin-top: 5rem; /* Add space between the heading and the description */
+  }
 
-.part1 {
-  font-size: 70px;
-  font-weight: 700;
-}
+  main {
+    flex-direction: column; /* Make it a single column */
+    padding-top: 2rem; /* Add padding at the top of the main content */
+  }
 
-.part2 {
-  font-size: 4rem;
-  font-weight: 700;
-  font-family: "Dancing Script", cursive;
-}
+  .vertical-line{
+    display: none; /* Remove vertical line on small screens */
+  }
 
-.btn-custom {
-  color: white; /* White text by default */
-  background-color: transparent; /* Transparent background by default */
-  border: 2px solid white; /* White border to make the button visible */
-  font-weight: 700;
-  border-radius: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+  .navbar-nav {
+    text-align: left;
+    width: 100%;
+  }
 
-.btn-custom:hover {
-  background-color: white; /* White background on hover */
-  color: black; /* Text turns black on hover for contrast */
+  .navbar-nav .nav-link {
+    text-align: left;
+    margin-left: 0;
+  }
+  
 }
