@@ -3,7 +3,13 @@ const images = [
   "/images/backImg2.jpg",
   "/images/backImg3.jpg",
   "/images/backImg4.jpg",
-  "/images/backImg5.jpeg"
+  "/images/backImg5.jpeg",
+  "/images/backImg6.jpg",
+  "/images/backImg7.jpg",
+  "/images/backImg8.jpg",
+  "/images/backImg8.png",
+  "/images/backImg9.jpg",
+  "/images/backImg10.jpg"
 ];
 
 let currentIndex = 0;

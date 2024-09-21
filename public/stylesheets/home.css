@@ -1,14 +1,14 @@
 body {
   height: 100vh;
   font-family: "Nunito", sans-serif;
-  background-color: black; /* Fallback in case of no images */
-  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.948); /* Fallback in case of no images */
+  /* overflow: hidden; */
 }
 
 .title{
   font-size: 1.7rem;
   font-weight: 700;
-  /* font-family: "Dancing Script", cursive; */
+  font-family: "Dancing Script", cursive;
 }
 #background-container {
   position: fixed;
@@ -37,6 +37,7 @@ body {
 
 .cover-container {
   max-width: 90vw;
+  max-height: 86vh;
   z-index: 1;
 }
 

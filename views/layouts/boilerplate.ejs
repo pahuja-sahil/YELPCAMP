@@ -45,12 +45,12 @@
     <link rel="stylesheet" href="/stylesheets/show.css">
   </head>
 
-  <body class="d-flex flex-column vh-100" style="background-color: #efefef;">
+  <body class="d-flex flex-column vh-100" style="background: linear-gradient(to bottom right, #F5E2D0, #F3DED5);">
     <%- include('../partials/navbar')%>
   <div class="mt-2">  
-    <%- include('../partials/flash')%> 
   </div>
-    <main class='container'>
+  <main class='container'>
+      <%- include('../partials/flash')%> 
       <%- body %>
     </main>
     <%- include('../partials/footer')%>

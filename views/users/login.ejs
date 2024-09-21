@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lilita+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -26,96 +26,82 @@
     <title>Login</title>
   </head>
   <body>
-      <section class="vh-100 full-height-section">
-        <div class="container py-5 h-100">
-          <%- include('../partials/flash')%>
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col col-xl-10">
-            <div class="card card-container">
-              <div class="row g-0">
-                <div class="col-md-6 col-lg-5 d-none d-md-block">
-                  <div class="image-container">
-                    <img src="/images/login.jpeg" alt="login form" />
+      <section class="vh-100">
+        <div class="container-fluid h-100">
+          <div class="row h-100">
+            <!-- Left Part - Image -->
+            <div class="col-md-6 px-0 image-container">
+              <img src="/images/login.jpeg" alt="login form" class="w-100 h-100" />
+            </div>
+            <!-- Right Part - Login Form -->
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
+              <div class="login-form">
+                <%- include('../partials/flash')%>
+                <form
+                  action="/login"
+                  method="POST"
+                  class="validated-form"
+                  novalidate
+                >
+                  <div class="d-flex align-items-center mb-4 pb-1">
+                    <i class="fas fa-fire-alt icon"></i>
+                    <span class="login-details">YelpCamp</span>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                  <div class="card-body card-body-custom">
-                    <form
-                      action="/login"
-                      method="POST"
-                      class="validated-form"
-                      novalidate
+
+                  <h5 class="pt-2 pb-2 login-title">
+                    Sign into your account
+                  </h5>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      class="form-control form-control-lg"
+                      placeholder="Enter your name"
+                      autofocus
+                      required
+                    />
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please provide a username.</div>
+                  </div>
+
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <label class="form-label" for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      placeholder="Enter your password"
+                      class="form-control form-control-lg"
+                      required
+                    />
+                    <div class="valid-feedback">Looks good!</div>
+                    <div class="invalid-feedback">Please provide a password.</div>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button
+                      data-mdb-button-init
+                      data-mdb-ripple-init
+                      class="btn btn-dark btn-lg btn-block"
+                      type="submit"
                     >
-                      <div class="d-flex align-items-center mb-3 pb-1">
-                        <i class="fas fa-fire-alt icon"></i>
-                        <span class="login-details">YelpCamp</span>
-                      </div>
-
-                      <h5 class="pt-2 pb-2 login-title">
-                        Sign into your account
-                      </h5>
-
-                      <div data-mdb-input-init class="form-outline mb-4">
-                        <label class="form-label" for="username"
-                          >Username</label
-                        >
-                        <input
-                          type="text"
-                          id="username"
-                          name="username"
-                          class="form-control form-control-lg"
-                          placeholder="Enter your name"
-                          autofocus
-                          required
-                        />
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">
-                          Please provide a username.
-                        </div>
-                      </div>
-
-                      <div data-mdb-input-init class="form-outline mb-4">
-                        <label class="form-label" for="password"
-                          >Password</label
-                        >
-                        <input
-                          type="password"
-                          id="password"
-                          name="password"
-                          placeholder="Enter your password"
-                          class="form-control form-control-lg"
-                          required
-                        />
-                        <div class="valid-feedback">Looks good!</div>
-                        <div class="invalid-feedback">
-                          Please provide a password.
-                        </div>
-                      </div>
-
-                      <div class="pt-1 mb-4">
-                        <button
-                          data-mdb-button-init
-                          data-mdb-ripple-init
-                          class="btn btn-dark btn-lg btn-block"
-                          type="submit"
-                        >
-                          Login
-                        </button>
-                      </div>
-
-                      <p class="mb-5 pb-lg-2 login-link">
-                        Don't have an account?
-                        <a href="/register" class="login-link">Register here</a>
-                      </p>
-                    </form>
+                      Login
+                    </button>
                   </div>
-                </div>
+
+                  <p class="mb-5 pb-lg-2 login-link">
+                    Don't have an account?
+                    <a href="/register" class="register-link">Register here</a>
+                  </p>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
