@@ -1,13 +1,13 @@
 mapboxgl.accessToken = mapToken;
 const map = new mapboxgl.Map({
     container: 'cluster-map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-103.59179687498357, 40.66995747013945],
-    zoom: 3
+    style: 'mapbox://styles/mapbox/dark-v10',
+    center: [0,0],
+    zoom: 1.325
 });
 
 
-map.addControl(new mapboxgl.NavigationControl(),'bottom-right'); //for navigation and zoom in 
+map.addControl(new mapboxgl.NavigationControl(),'top-right'); //for navigation and zoom in 
 
 map.on('load', function () {
     // Add a new source from our GeoJSON data and
@@ -37,11 +37,11 @@ map.on('load', function () {
             'circle-color': [
                 'step',
                 ['get', 'point_count'],
-                '#00BCD4',
+                '#d47c00',
                 10,
-                '#2196F3',
+                '#fa6f05',
                 30,
-                '#3F51B5'
+                '#fa4e05'
             ],
             'circle-radius': [
                 'step',
@@ -73,7 +73,7 @@ map.on('load', function () {
         source: 'campgrounds',
         filter: ['!', ['has', 'point_count']],
         paint: {
-            'circle-color': '#11b4da',
+            'circle-color': '#da7511',
             'circle-radius': 4,
             'circle-stroke-width': 1,
             'circle-stroke-color': '#fff'

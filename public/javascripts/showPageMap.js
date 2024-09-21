@@ -4,7 +4,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v12', // stylesheet location
     center: camp.geometry.coordinates, // starting position [lng, lat]
-    zoom: 10 // starting zoom
+    zoom: 5 // starting zoom
 });
 
 map.addControl(new mapboxgl.NavigationControl(),'bottom-right'); //for navigation and zoom in

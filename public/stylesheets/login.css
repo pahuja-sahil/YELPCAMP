@@ -1,23 +1,38 @@
-.image-container {
-    height: 100%;
+/* Flexbox styling for the form on the right */
+.login-form {
     width: 100%;
-    overflow: hidden;
-    border-radius: 1rem 0 0 1rem;
+    max-width: 600px; /* Adjust as necessary for form width */
+    padding: 20px;
+    color: black;
 }
 
+/* Hide the image on small screens */
+@media (max-width: 768px) {
+    .image-container {
+        display: none;
+    }
+    /* Make the form container take full width on small screens */
+    .login-form {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+/* Ensure the image covers the left 50% of the screen */
 .image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.icon{
+.icon {
     color: #e85d04;
     font-size: 1.8rem;
     margin-right: 5px;
+    margin-top: 15px;   
 }
 
-.login-details{
+.login-details {
     color: black;
     font-family: "Dancing Script", cursive;
     font-weight: 900; /* Adjust this value as needed */
@@ -27,32 +42,22 @@
     margin-top: 10px;
 }
 
-.login-title{
+.login-title {
     font-size: 1.5rem;
     font-weight: 600;
 }
+
 body {
-    background-image: url('../images/background.jpeg');
-    background-size: cover; /* This makes sure the image covers the entire area */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
+    overflow: hidden; /* Prevents scrolling */
     font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to bottom right, #F5E2D0, #F3DED5);
 }
-      
+
 input::placeholder {
-    font-size: 17px; 
+    font-size: 17px;
 }
 
-.card-container {
-    border-radius: 1rem;
-}
-
-.card-body-custom {
-    padding: 1rem 2.5rem;
-    color: black;
-}
-
-.login-link {
+.register-link {
     color: #393f81;
     font-weight: 600;
 }
@@ -62,3 +67,10 @@ input::placeholder {
     font-size: 18px;
 }
 
+.vh-100 {
+    height: 100vh;
+}
+
+.container-fluid {
+    padding: 0;
+}
