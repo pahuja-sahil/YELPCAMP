@@ -1,94 +1,96 @@
 <% layout('layouts/boilerplate')%>
-<div class="row my-4">
-  <div class="col-md-6 offset-md-3">
-    <div class="new card px-4">
-      <p class="head-text">New Campground</p>
+<div class="form-cont">
+  <!-- Image on the left -->
+  <div class="img-cont">
+    <img src="/images/newBackImg.jpg" alt="Campground Image" />
+  </div>
 
-      <div class="card-body">
-        <form
-          action="/campgrounds"
-          method="POST"
-          novalidate
-          class="validated-form"
-          enctype="multipart/form-data"
-        >
-          <div class="mb-4">
-            <label class="form-label text" for="title">Title</label>
-            <input
-              class="form-control"
-              type="text"
-              id="title"
-              name="campground[title]"
-              placeholder="Enter the campground title (e.g., Yosemite National Park)"
-              required
-            />
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="mb-4">
-            <label class="form-label text" for="location">Location</label>
-            <input
-              class="form-control"
-              type="text"
-              id="location"
-              name="campground[location]"
-              placeholder="Enter the campground location (e.g., Yosemite National Park)"
-              required
-            />
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="mb-4">
-            <label class="form-label text" for="price">Campground Price</label>
-            <div class="input-group">
-              <span class="input-group-text" id="price-label">$</span>
-              <input
-                type="text"
-                class="form-control"
-                id="price"
-                placeholder="0.00"
-                aria-label="price"
-                aria-describedby="price-label"
-                name="campground[price]"
-                required
-              />
-            </div>
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="mb-4">
-            <label class="form-label fw-bold" for="description"
-              >Description</label
-            >
-            <textarea
-              class="form-control"
-              type="text"
-              id="description"
-              name="campground[description]"
-              placeholder="Describe the campground (e.g., facilities, nearby attractions, etc.)"
-              required
-            ></textarea>
-            <div class="valid-feedback">Looks good!</div>
-          </div>
-          <div class="mb-4">
-            <div class="form-file custom-file">
-              <input
-                type="file"
-                class="form-file-input"
-                id="image"
-                name="image"
-                multiple
-              />
-              <label class="form-file-label" for="image">
-                <span class="form-file-text custom-file-label"
-                  >Choose image(s)...</span
-                >
-                <span class="form-file-button">Browse</span>
-              </label>
-            </div>
-          </div>
-          <div class="mb-3 text-center">
-            <button class="btn btn-success">Add Campground</button>
-          </div>
-        </form>
+  <!-- Form on the right -->
+  <div class="form-con">
+    <p class="head-text">New Campground</p>
+    <form
+      action="/campgrounds"
+      method="POST"
+      novalidate
+      class="validated-form mb-3"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-4">
+        <label class="form-label text" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="campground[title]"
+          placeholder="Enter the campground title (e.g., Yosemite National Park)"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
       </div>
-    </div>
+
+      <div class="mb-4">
+        <label class="form-label text" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+          placeholder="Enter the campground location (e.g., Yosemite National Park)"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label text" for="price">Campground Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">$</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="price"
+            aria-describedby="price-label"
+            name="campground[price]"
+            required
+          />
+        </div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label fw-bold" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+          placeholder="Describe the campground (e.g., facilities, nearby attractions, etc.)"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-4">
+        <div class="form-file custom-file">
+          <input
+            type="file"
+            class="form-file-input"
+            id="image"
+            name="image"
+            multiple
+          />
+          <label class="form-file-label" for="image">
+            <span class="form-file-text custom-file-label">Choose image(s)...</span>
+            <span class="form-file-button">Browse</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="mb-3 text-center">
+        <button class="btn btn-success">Add Campground</button>
+      </div>
+    </form>
   </div>
 </div>

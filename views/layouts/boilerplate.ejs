@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YelpCamp</title>
-
+    <link rel="shortcut icon" type="x-icon" href="/images/browserIcon.png" >
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
@@ -46,12 +46,10 @@
   </head>
 
   <body class="d-flex flex-column vh-100" style="background: linear-gradient(to bottom right, #F5E2D0, #F3DED5);">
-    <%- include('../partials/navbar')%>
-  <div class="mt-2">  
-  </div>
-  <main class='container'>
-      <%- include('../partials/flash')%> 
-      <%- body %>
+    <%- include('../partials/navbar')%>  
+  <main class='container my-2 d-flex flex-column'>
+    <%- include('../partials/flash')%>  
+    <%- body %>
     </main>
     <%- include('../partials/footer')%>
     <script

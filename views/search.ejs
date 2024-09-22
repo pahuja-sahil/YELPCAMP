@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate.ejs') %>
 
-<h1 class="mb-3"><%= search_query %></h1>
+<p class="lead font-weight-bold mb-3">"<%= search_query %>"</p>
 
 <form action="/results/?" class="d-flex mb-3">
   <input
@@ -11,13 +11,13 @@
     aria-label="Search"
     value="<%= search_query %>"
   />
-  <button class="btn btn-outline-dark" type="submit">Search</button>
+  <button class="btn btn-outline-dark mx-2" type="submit">Search</button>
 </form>
 
 <% if (campgrounds.length===0) { %>
 <img
-  class="img-fluid d-flex"
-  style="opacity: 0.3"
+  class="d-flex justify-content-center rounded-circle align-items-center  mx-auto my-2"
+  style="opacity: 0.5; max-height: 80%; max-width: 80%;"
   src="/images/nothing_here_yet.png"
   alt=""
 />
