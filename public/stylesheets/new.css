@@ -1,17 +1,81 @@
-.new{
+.new {
     font-family: 'Nunito', sans-serif;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
 }
 
-.head-text{
-    font-size:2rem;
-    margin: 2rem 0;
+/* Flexbox layout for image and form */
+.form-cont {
+    display: flex;
+    width: 100%; /* Full width of the container */
+    height: 90%; /* Full height of the container */
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Image on the left */
+.img-cont {
+    width: 60%; /* Takes 50% of the space */
+    display: flex;
+}
+
+.img-cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the space */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+/* Form on the right */
+.form-con {
+    width: 60%; /* Takes 50% of the space */
+    padding: 2rem; /* Ensure padding is reduced */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f7f7f7; /* Light background for the form area */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.head-text {
+    font-size: 2rem;
+    margin-bottom: 2rem;
     font-weight: 700;
     text-align: center;
-
 }
 
-.text{
-   font-size: 17px;
+.text {
+    font-size: 17px;
+}
+
+@media(max-width: 990px){
+    .img-cont{
+        display: none;
+    }
+    .form-con{
+        width: 100%;
+        border-radius: 20px;
+    }
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .form-cont {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .form-con {
+        width: 100%;
+        height: auto;
+    }
+
+    .form-con {
+        padding: 1rem;
+    }
 }

@@ -6,6 +6,7 @@ require('dotenv').config();
 const key = process.env.API_KEY;
 const mainAuth = process.env.OWNER_ID;
 const Campground = require('../models/campground');
+const User = require('../models/user');
 const { cloudinary } = require("../cloudinary");
 const { reverseGeo } = require('../tools');
 
@@ -26,6 +27,11 @@ db.once('open', async () => {
     }
 });
 
+// const createUser = async() => {
+//     const user = new User({ email, username });
+//     const registeredUser = await User.register(user, password);
+// }    
+
 const processDatas = async () => {
     try {
         const config = {
@@ -33,7 +39,7 @@ const processDatas = async () => {
                 api_key: key
             }
         };
-        const res = await axios.get(`https://developer.nps.gov/api/v1/campgrounds?limit=300`, config);
+        const res = await axios.get(`https://developer.nps.gov/api/v1/campgrounds?limit=100`, config);
         return res;
     } catch (e) {
         console.log("Connection timeout");
@@ -45,7 +51,7 @@ async function upload(images, camp) {
     for (let i = 0; i < images.length; i++) {
         try {
             // Store the result after upload and insert it into camp images
-            const res = await cloudinary.uploader.upload_large(images[i], { folder: 'YelpCamp' });
+            const res = await cloudinary.uploader.upload_large(images[i], { folder: process.env.FOLDER_NAME });
             camp.images.push({ url: res.secure_url, filename: res.original_filename });
         } catch (e) {
             if (i === 0) {

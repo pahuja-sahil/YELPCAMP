@@ -15,6 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
     <link rel="stylesheet" href="/stylesheets/register.css" />
+    <link rel="shortcut icon" type="x-icon" href="/images/browserIcon.png" />
     <title>Register</title>
   </head>
   <body>
@@ -22,6 +23,7 @@
       <!-- Left part: Register form -->
       <div class="left-section">
         <div class="form-container">
+          <%- include('../partials/flash')%>
           <form action="/register" method="POST" class="validated-form" novalidate>
             <div class="d-flex align-items-center mb-4 pb-1">
               <i class="fas fa-fire-alt icon"></i>

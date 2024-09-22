@@ -19,6 +19,8 @@ const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
 const Campground = require('./models/campground');
+const MongoDBStore = require("connect-mongo");
+const dbUrl = process.env.MONGO_URI;
 
 mongoose.connect(process.env.MONGO_URI);
 
@@ -41,9 +43,24 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 
+const secret = process.env.SECRET || 'squirrel';
+// const secret = 'squirrel';
+const store = MongoDBStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret
+    }
+});
+
+store.on("error", function(e){
+    console.log('SESSION STORE ERROR', e)
+})
+
 const sessionConfig = {
+    store,
     name: 'session',                            // this is the name of the session
-    secret: 'thisshouldbeabettersecret!',       // this is used to encode and decode the session    
+    secret,       // this is used to encode and decode the session    
     resave: false,                              // if nothing has changed, don't save the session               
     saveUninitialized: true,                    // if we have a new session, we'll save it              
     cookie: {
