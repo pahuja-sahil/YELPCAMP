@@ -2,16 +2,16 @@
 
 <p class="lead font-weight-bold mb-3">"<%= search_query %>"</p>
 
-<form action="/results/?" class="d-flex mb-3">
+<form action="/results/?" class="d-flex mb-5 search-form">
   <input
-    class="form-control me-2"
+    class="form-control me-2 search-input"
     type="search"
     placeholder="Search Your Campgrounds ...."
     name="search_query"
     aria-label="Search"
     value="<%= search_query %>"
   />
-  <button class="btn btn-outline-dark mx-2" type="submit">Search</button>
+  <button class="btn btn-outline-dark search-btn" type="submit">Search</button>
 </form>
 
 <% if (campgrounds.length===0) { %>
@@ -24,9 +24,9 @@
 <% } %> 
 
 <% for( let campground of campgrounds ) { %>
-<div class="card mb-3">
+<div class="card mb-4 campground-card">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 image-container">
       <% if (campground.images.length) { %>
       <img class="img-fluid" src="<%= campground.images[0].url %>" alt="" />
       <% } else { %>
@@ -34,15 +34,16 @@
       <% } %>
     </div>
     <div class="col-md-8">
-      <div class="card-body">
+      <div class="card-body d-flex flex-column h-100">
         <h5 class="card-title"><%= campground.title %></h5>
         <p class="card-text"><%= campground.description %></p>
         <p class="card-text">
           <small class="text-muted"> <%= campground.location %> </small>
         </p>
-        <a href="/campgrounds/<%= campground._id %>" class="btn btn-dark"
-          >View more..
-        </a>
+        <a 
+        href="/campgrounds/<%= campground._id %>" 
+        class="btn btn-dark mt-auto mr-auto">
+        View more..</a>
       </div>
     </div>
   </div>
